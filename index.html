@@ -3,195 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Sign Up</title>
+    <title>App Authentication</title>
     <!-- Add Google Font - Exo 2 -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Exo 2', sans-serif;
-    background-color: #FAF9F6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 10px;
-}
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #FAF9F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
 
-/* Custom colors */
-.app-brown { color: #6F4F3D; }
-.bg-app-brown { background-color: #6F4F3D; }
-.app-tan { color: #F2EFEA; }
-.bg-app-tan { background-color: #F2EFEA; }
-.app-text { color: #333333; }
-.bg-gray-50 { background-color: #f9fafb; }
-.text-gray-500 { color: #6b7280; }
-.text-white { color: white; }
+        /* Custom colors */
+        .app-brown { color: #6F4F3D; }
+        .bg-app-brown { background-color: #6F4F3D; }
+        .app-tan { color: #F2EFEA; }
+        .bg-app-tan { background-color: #F2EFEA; }
+        .app-text { color: #333333; }
+        .bg-gray-50 { background-color: #f9fafb; }
+        .text-gray-500 { color: #6b7280; }
+        .text-white { color: white; }
 
-/* Sign up container */
-.signup-card {
-    width: 100%;
-    max-width: 400px;
-    background-color: #f9fafb;
-    border-radius: 24px;
-    padding: 20px;
-}
+        /* Authentication containers */
+        .auth-card {
+            width: 100%;
+            max-width: 400px;
+            background-color: #f9fafb;
+            border-radius: 24px;
+            padding: 20px;
+        }
 
-/* Header section */
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .hidden {
+            display: none;
+        }
 
-.image-container {
-    width: 100%;
-    margin-bottom: 16px;
-}
+        /* Header section */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.app-image {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
+        .image-container {
+            width: 100%;
+            margin-bottom: 16px;
+        }
 
-.title {
-    font-size: 32px;
-    font-weight: 700;
-    color: #6F4F3D;
-    margin-bottom: 8px;
-}
+        .app-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
 
-.subtitle {
-    color: #6b7280;
-    margin-bottom: 8px;
-}
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #6F4F3D;
+            margin-bottom: 8px;
+        }
 
-/* Form styles */
-.form-group {
-    margin-bottom: 12px;
-}
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
 
-.form-input {
-    width: 100%;
-    padding: 16px;
-    font-size: 16px;
-    background-color: white;
-    border-radius: 12px;
-    border: 1px solid #6f4f3d63;
-    color: #333333;
-    font-family: 'Exo 2', sans-serif;
-}
+        /* Form styles */
+        .form-group {
+            margin-bottom: 12px;
+        }
 
-.form-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #6F4F3D;
-}
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            background-color: white;
+            border-radius: 12px;
+            border: 1px solid #6f4f3d63;
+            color: #333333;
+            font-family: 'Exo 2', sans-serif;
+        }
 
-.form-input::placeholder {
-    color: #9ca3af;
-}
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #6F4F3D;
+        }
 
-/* Button styles */
-.submit-button {
-    width: 100%;
-    background-color: #6F4F3D;
-    color: white;
-    font-weight: 600;
-    padding: 16px;
-    border-radius: 12px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    margin-top: 8px;
-    font-family: 'Exo 2', sans-serif;
-}
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
 
-.submit-button:hover {
-    background-color: #5a3f30;
-}
+        /* Button styles */
+        .submit-button {
+            width: 100%;
+            background-color: #6F4F3D;
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-top: 8px;
+            font-family: 'Exo 2', sans-serif;
+        }
 
-/* Footer link */
-.footer {
-    text-align: center;
-    margin-top: 16px;
-    color: #6b7280;
-    font-size: 14px;
-    font-family: 'Exo 2', sans-serif;
-}
+        .submit-button:hover {
+            background-color: #5a3f30;
+        }
 
-.footer-link {
-    color: #6F4F3D;
-    font-weight: 600;
-    text-decoration: none;
-}
+        /* Footer link */
+        .footer {
+            text-align: center;
+            margin-top: 16px;
+            color: #6b7280;
+            font-size: 14px;
+            font-family: 'Exo 2', sans-serif;
+        }
 
-.footer-link:hover {
-    text-decoration: underline;
-}
+        .footer-link {
+            color: #6F4F3D;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-/* Message box */
-.message-box {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    margin-top: 16px;
-    max-width: 300px;
-    width: 100%;
-    padding: 16px;
-    text-align: center;
-    color: white;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    z-index: 100;
-    font-family: 'Exo 2', sans-serif;
-}
+        .footer-link:hover {
+            text-decoration: underline;
+        }
 
-.message-box.show {
-    transform: translateX(-50%) scale(1);
-}
+        /* Message box */
+        .message-box {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            margin-top: 16px;
+            max-width: 300px;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            color: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-family: 'Exo 2', sans-serif;
+        }
 
-.message-success {
-    background-color: #10b981;
-}
+        .message-box.show {
+            transform: translateX(-50%) scale(1);
+        }
 
-.message-error {
-    background-color: #ef4444;
-}
+        .message-success {
+            background-color: #10b981;
+        }
 
-.message-default {
-    background-color: #6F4F3D;
-}
+        .message-error {
+            background-color: #ef4444;
+        }
+
+        .message-default {
+            background-color: #6F4F3D;
+        }
     </style>
 </head>
 <body>
 
-    <!-- SIGN UP CONTAINER -->
-    <div class="signup-card">
+    <!-- SIGN UP SCREEN -->
+    <div class="auth-card" id="signupScreen">
         <!-- Header and Image Section -->
         <div class="header">
-            <!-- Image Container - Now at the top -->
             <div class="image-container">
                 <img 
                     src="image2.png" 
-                    alt="Financial illustration placeholder"
-                    onerror="this.onerror=null;this.src='https://placehold.co/400x250/F2EFEA/6F4F3D?text=Revenue+Tracker';"
+                    alt="Sign up illustration"
+                    onerror="this.onerror=null;this.src='https://placehold.co/400x250/F2EFEA/6F4F3D?text=Create+Account';"
                     class="app-image"
                 >
             </div>
-
-            <!-- Title moved below the image -->
             <h1 class="title">Create Account</h1>
             <p class="subtitle">Create your account to unlock full potential.</p>
         </div>
 
         <!-- Input Fields Section -->
-        <form onsubmit="event.preventDefault(); showMessage('Sign Up Attempted!', 'success');">
+        <form onsubmit="event.preventDefault(); showMessage('Account created successfully!', 'success');">
+            <!-- Name Input -->
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    placeholder="Full Name" 
+                    required 
+                    class="form-input"
+                >
+            </div>
+
             <!-- Email Input -->
             <div class="form-group">
                 <input 
@@ -213,17 +225,6 @@ body {
                 >
             </div>
 
-            <!-- Confirm Password Input -->
-            <div class="form-group">
-                <input 
-                    type="password" 
-                    placeholder="Confirm Password" 
-                    required 
-                    minlength="8"
-                    class="form-input"
-                >
-            </div>
-
             <!-- Sign Up Button -->
             <button type="submit" class="submit-button">
                 Sign Up
@@ -233,7 +234,58 @@ body {
         <!-- Footer Link -->
         <p class="footer">
             Already have an account? 
-            <a href="#" class="footer-link">Log In</a>
+            <span class="footer-link" onclick="showSignIn()">Log In</span>
+        </p>
+    </div>
+
+    <!-- SIGN IN SCREEN -->
+    <div class="auth-card hidden" id="signinScreen">
+        <!-- Header and Image Section -->
+        <div class="header">
+            <div class="image-container">
+                <img 
+                    src="image1.png" 
+                    alt="Sign in illustration"
+                    onerror="this.onerror=null;this.src='https://placehold.co/400x250/F2EFEA/6F4F3D?text=Welcome+Back';"
+                    class="app-image"
+                >
+            </div>
+            <h1 class="title">Welcome Back</h1>
+            <p class="subtitle">Sign in to your account to continue.</p>
+        </div>
+
+        <!-- Input Fields Section -->
+        <form onsubmit="event.preventDefault(); showMessage('Signed in successfully!', 'success');">
+            <!-- Email Input -->
+            <div class="form-group">
+                <input 
+                    type="email" 
+                    placeholder="Email Address" 
+                    required 
+                    class="form-input"
+                >
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    required 
+                    class="form-input"
+                >
+            </div>
+
+            <!-- Sign In Button -->
+            <button type="submit" class="submit-button">
+                Sign In
+            </button>
+        </form>
+
+        <!-- Footer Link -->
+        <p class="footer">
+            Don't have an account? 
+            <span class="footer-link" onclick="showSignUp()">Sign Up</span>
         </p>
     </div>
 
@@ -243,6 +295,18 @@ body {
     </div>
 
     <script>
+        // Function to show sign up screen
+        function showSignUp() {
+            document.getElementById('signinScreen').classList.add('hidden');
+            document.getElementById('signupScreen').classList.remove('hidden');
+        }
+
+        // Function to show sign in screen
+        function showSignIn() {
+            document.getElementById('signupScreen').classList.add('hidden');
+            document.getElementById('signinScreen').classList.remove('hidden');
+        }
+
         // Function to show a custom message
         function showMessage(text, type) {
             const box = document.getElementById('message-box');
