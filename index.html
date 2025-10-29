@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Sign Up</title>
+    <!-- Add Google Font - Exo 2 -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background-color: #F9F9F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Custom colors */
+.app-brown { color: #6F4F3D; }
+.bg-app-brown { background-color: #6F4F3D; }
+.app-tan { color: #F2EFEA; }
+.bg-app-tan { background-color: #F2EFEA; }
+.app-text { color: #333333; }
+.bg-gray-50 { background-color: #f9fafb; }
+.text-gray-500 { color: #6b7280; }
+.text-white { color: white; }
+
+/* Sign up container */
+.signup-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: #f9fafb;
+    border-radius: 24px;
+    padding: 20px;
+}
+
+/* Header section */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.app-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #6F4F3D;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 12px;
+    border: none;
+    color: #333333;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #6F4F3D;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Button styles */
+.submit-button {
+    width: 100%;
+    background-color: #6F4F3D;
+    color: white;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.submit-button:hover {
+    background-color: #5a3f30;
+}
+
+/* Footer link */
+.footer {
+    text-align: center;
+    margin-top: 16px;
+    color: #6b7280;
+    font-size: 14px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.footer-link {
+    color: #6F4F3D;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Message box */
+.message-box {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    margin-top: 16px;
+    max-width: 300px;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 100;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.message-box.show {
+    transform: translateX(-50%) scale(1);
+}
+
+.message-success {
+    background-color: #10b981;
+}
+
+.message-error {
+    background-color: #ef4444;
+}
+
+.message-default {
+    background-color: #6F4F3D;
+}
+    </style>
+</head>
+<body>
+
+    <!-- SIGN UP CONTAINER -->
+    <div class="signup-card">
+        <!-- Header and Image Section -->
+        <div class="header">
+            <!-- Image Container - Now at the top -->
+            <div class="image-container">
+                <img 
+                    src="image2.png" 
+                    alt="Financial illustration placeholder"
+                    onerror="this.onerror=null;this.src='https://placehold.co/400x250/F2EFEA/6F4F3D?text=Revenue+Tracker';"
+                    class="app-image"
+                >
+            </div>
+
+            <!-- Title moved below the image -->
+            <h1 class="title">Create Account</h1>
+            <p class="subtitle">Create your account to unlock full potential.</p>
+        </div>
+
+        <!-- Input Fields Section -->
+        <form onsubmit="event.preventDefault(); showMessage('Sign Up Attempted!', 'success');">
+            <!-- Email Input -->
+            <div class="form-group">
+                <input 
+                    type="email" 
+                    placeholder="Email Address" 
+                    required 
+                    class="form-input"
+                >
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <input 
+                    type="password" 
+                    placeholder="Password" 
+                    required 
+                    minlength="8"
+                    class="form-input"
+                >
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="form-group">
+                <input 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    required 
+                    minlength="8"
+                    class="form-input"
+                >
+            </div>
+
+            <!-- Sign Up Button -->
+            <button type="submit" class="submit-button">
+                Create Account
+            </button>
+        </form>
+
+        <!-- Footer Link -->
+        <p class="footer">
+            Already have an account? 
+            <a href="#" class="footer-link">Log In</a>
+        </p>
+    </div>
+
+    <!-- Custom Message Box -->
+    <div id="message-box" class="message-box">
+        <p id="message-text"></p>
+    </div>
+
+    <script>
+        // Function to show a custom message
+        function showMessage(text, type) {
+            const box = document.getElementById('message-box');
+            const messageText = document.getElementById('message-text');
+
+            // Set message text
+            messageText.textContent = text;
+            
+            // Reset box classes
+            box.className = 'message-box';
+            
+            // Add appropriate color class
+            if (type === 'success') {
+                box.classList.add('message-success');
+            } else if (type === 'error') {
+                box.classList.add('message-error');
+            } else {
+                box.classList.add('message-default');
+            }
+
+            // Show message
+            box.classList.add('show');
+
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                box.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
