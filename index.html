@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Authentication</title>
+    <title>Wallet App</title>
     <!-- Add Google Font - Exo 2 -->
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Add Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,12 +18,9 @@
 
         body {
             font-family: 'Exo 2', sans-serif;
-            background-color: #FAF9F6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #fff8e5;
             min-height: 100vh;
-            padding: 10px;
+            padding: 5px; /* Reduced from 10px */
         }
 
         /* Custom colors */
@@ -32,14 +32,17 @@
         .bg-gray-50 { background-color: #f9fafb; }
         .text-gray-500 { color: #6b7280; }
         .text-white { color: white; }
+        .income-color { color: #28a745; }
+        .expense-color { color: #dc3545; }
 
         /* Authentication containers */
         .auth-card {
             width: 100%;
             max-width: 400px;
-            background-color: #f9fafb;
+            background-color: #fff8e5;
             border-radius: 24px;
             padding: 20px;
+            margin: 0 auto;
         }
 
         .hidden {
@@ -139,7 +142,7 @@
             text-decoration: underline;
         }
 
-        /* Message box */
+        /* Improved Message box */
         .message-box {
             position: fixed;
             top: 0;
@@ -155,6 +158,12 @@
             transition: all 0.3s ease;
             z-index: 100;
             font-family: 'Exo 2', sans-serif;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
         }
 
         .message-box.show {
@@ -162,23 +171,281 @@
         }
 
         .message-success {
-            background-color: #10b981;
+            background-color: rgba(0, 166, 255, 0.614);
+            border-color: rgb(0, 166, 255);
+            z-index: 1000;
         }
 
         .message-error {
-            background-color: #ef4444;
+            background-color: rgba(239, 68, 68,  0.614);
+            border-color: rgba(239, 68, 68, 1);
         }
 
         .message-default {
+            background-color: rgba(111, 79, 61, 0.9);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dashboard Styles */
+        .dashboard-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff8e5;
+            border-radius: 24px;
+            padding: 15px; /* Reduced from 20px */
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px; /* Reduced from 24px */
+            padding-bottom: 12px; /* Reduced from 16px */
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Reduced from 12px */
+            flex: 1;
+        }
+
+        .logo {
+            width: 80; /* Reduced from 40px */
+            height: 80px; /* Reduced from 40px */
+            border-radius: 8px;
+        }
+
+        .welcome-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .welcome-label {
+            font-size: 11px; /* Reduced from 12px */
+            color: #6b7280;
+        }
+
+        .username {
+            font-size: 15px; /* Reduced from 16px */
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Reduced from 12px */
+        }
+
+        .add-button {
             background-color: #6F4F3D;
+            color: white;
+            padding: 6px 12px; /* Reduced from 8px 16px */
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px; /* Reduced from 14px */
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logout-button {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 6px; /* Reduced from 8px */
+            border-radius: 8px;
+        }
+
+        .logout-button:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Balance Card */
+        .balance-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 15px; /* Reduced from 20px */
+            margin-bottom: 15px; /* Reduced from 20px */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .balance-title {
+            font-size: 13px; /* Reduced from 14px */
+            color: #6b7280;
+            margin-bottom: 6px; /* Reduced from 8px */
+        }
+
+        .balance-amount {
+            font-size: 28px; /* Reduced from 32px */
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 15px; /* Reduced from 20px */
+        }
+
+        .balance-stats {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 11px; /* Reduced from 12px */
+            color: #6b7280;
+            margin-bottom: 3px; /* Reduced from 4px */
+        }
+
+        .stat-amount {
+            font-size: 16px; /* Reduced from 18px */
+            font-weight: 600;
+        }
+
+        .stat-divider {
+            border-right: 1px solid #e5e7eb;
+        }
+
+        /* Transactions Section - Reduced margins */
+        .section-title {
+            font-size: 17px; /* Reduced from 18px */
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 12px; /* Reduced from 16px */
+        }
+
+        .transactions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Reduced from 12px */
+        }
+
+        .transaction-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 12px; /* Reduced from 16px */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .transaction-icon {
+            width: 35px; /* Reduced from 40px */
+            height: 35px; /* Reduced from 40px */
+            border-radius: 18px; /* Reduced from 20px */
+            background-color: #fee2e2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px; /* Reduced from 12px */
+            color: #dc3545;
+        }
+
+        .transaction-content {
+            flex: 1;
+        }
+
+        .transaction-title {
+            font-size: 15px; /* Reduced from 16px */
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 3px; /* Reduced from 4px */
+        }
+
+        .transaction-category {
+            font-size: 13px; /* Reduced from 14px */
+            color: #6b7280;
+        }
+
+        .transaction-right {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced from 12px */
+        }
+
+        .transaction-amount {
+            font-size: 15px; /* Reduced from 16px */
+            font-weight: 600;
+            margin-bottom: 3px; /* Reduced from 4px */
+        }
+
+        .transaction-date {
+            font-size: 11px; /* Reduced from 12px */
+            color: #6b7280;
+        }
+
+        .delete-section {
+            border-left: 1px solid #e5e7eb;
+            padding-left: 8px; /* Reduced from 12px */
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            padding: 3px; /* Reduced from 4px */
+            border-radius: 4px;
+        }
+
+        .delete-button:hover {
+            background-color: #fee2e2;
+        }
+
+        /* Loading Spinner */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #6F4F3D;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-hidden {
+            opacity: 0;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
+    <!-- LOADING SPINNER -->
+    <div id="loadingOverlay" class="loading-overlay loading-hidden">
+        <div class="loading-spinner"></div>
+    </div>
+
     <!-- SIGN UP SCREEN -->
     <div class="auth-card" id="signupScreen">
-        <!-- Header and Image Section -->
         <div class="header">
             <div class="image-container">
                 <img 
@@ -192,46 +459,19 @@
             <p class="subtitle">Create your account to unlock full potential.</p>
         </div>
 
-        <!-- Input Fields Section -->
-        <form onsubmit="event.preventDefault(); showMessage('Account created successfully!', 'success');">
-            <!-- Name Input -->
+        <form onsubmit="event.preventDefault(); handleSignUp();">
             <div class="form-group">
-                <input 
-                    type="text" 
-                    placeholder="Full Name" 
-                    required 
-                    class="form-input"
-                >
+                <input type="text" placeholder="Full Name" required class="form-input" id="signupName">
             </div>
-
-            <!-- Email Input -->
             <div class="form-group">
-                <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    required 
-                    class="form-input"
-                >
+                <input type="email" placeholder="Email Address" required class="form-input" id="signupEmail">
             </div>
-
-            <!-- Password Input -->
             <div class="form-group">
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    required 
-                    minlength="8"
-                    class="form-input"
-                >
+                <input type="password" placeholder="Password" required minlength="8" class="form-input" id="signupPassword">
             </div>
-
-            <!-- Sign Up Button -->
-            <button type="submit" class="submit-button">
-                Sign Up
-            </button>
+            <button type="submit" class="submit-button">Sign Up</button>
         </form>
 
-        <!-- Footer Link -->
         <p class="footer">
             Already have an account? 
             <span class="footer-link" onclick="showSignIn()">Log In</span>
@@ -240,7 +480,6 @@
 
     <!-- SIGN IN SCREEN -->
     <div class="auth-card hidden" id="signinScreen">
-        <!-- Header and Image Section -->
         <div class="header">
             <div class="image-container">
                 <img 
@@ -254,39 +493,66 @@
             <p class="subtitle">Sign in to your account to continue.</p>
         </div>
 
-        <!-- Input Fields Section -->
-        <form onsubmit="event.preventDefault(); showMessage('Signed in successfully!', 'success');">
-            <!-- Email Input -->
+        <form onsubmit="event.preventDefault(); handleSignIn();">
             <div class="form-group">
-                <input 
-                    type="email" 
-                    placeholder="Email Address" 
-                    required 
-                    class="form-input"
-                >
+                <input type="email" placeholder="Email Address" required class="form-input" id="signinEmail">
             </div>
-
-            <!-- Password Input -->
             <div class="form-group">
-                <input 
-                    type="password" 
-                    placeholder="Password" 
-                    required 
-                    class="form-input"
-                >
+                <input type="password" placeholder="Password" required class="form-input" id="signinPassword">
             </div>
-
-            <!-- Sign In Button -->
-            <button type="submit" class="submit-button">
-                Sign In
-            </button>
+            <button type="submit" class="submit-button">Sign In</button>
         </form>
 
-        <!-- Footer Link -->
         <p class="footer">
             Don't have an account? 
             <span class="footer-link" onclick="showSignUp()">Sign Up</span>
         </p>
+    </div>
+
+    <!-- DASHBOARD SCREEN -->
+    <div class="dashboard-container hidden" id="dashboardScreen">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <img src="logo.png" alt="Logo" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/35x35/6F4F3D/white?text=W';">
+                <div class="welcome-text">
+                    <div class="welcome-label">Welcome,</div>
+                    <div class="username" id="userName">User</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="add-button" onclick="showAddTransaction()">
+                    <ion-icon name="add"></ion-icon>
+                    Add
+                </button>
+                <button class="logout-button" onclick="handleLogout()">
+                    <ion-icon name="log-out-outline" size="small"></ion-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Balance Card -->
+        <div class="balance-card">
+            <div class="balance-title">Total Balance</div>
+            <div class="balance-amount" id="totalBalance">Ksh 45,230</div>
+            <div class="balance-stats">
+                <div class="stat-item">
+                    <div class="stat-label">Income</div>
+                    <div class="stat-amount income-color" id="incomeAmount">Ksh 52,000</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-label">Expenses</div>
+                    <div class="stat-amount expense-color" id="expenseAmount">Ksh 6,770</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="section-title">Recent Transactions</div>
+        <div class="transactions-list" id="transactionsList">
+            <!-- Transactions will be dynamically added here -->
+        </div>
     </div>
 
     <!-- Custom Message Box -->
@@ -295,16 +561,169 @@
     </div>
 
     <script>
+        // Transaction data with real-time updating amounts
+        let transactions = [
+            { id: 1, title: "Fuel", category: "Transportation", amount: -2500, date: "Today", type: "expense", icon: "car-sport", iconColor: "#fee2e2", textColor: "#dc3545" },
+            { id: 2, title: "Salary", category: "Income", amount: 50000, date: "2 days ago", type: "income", icon: "cash", iconColor: "#dcfce7", textColor: "#16a34a" },
+            { id: 3, title: "Groceries", category: "Food & Drinks", amount: -4270, date: "3 days ago", type: "expense", icon: "fast-food", iconColor: "#fef3c7", textColor: "#d97706" },
+            { id: 4, title: "Freelance", category: "Income", amount: 2000, date: "4 days ago", type: "income", icon: "laptop", iconColor: "#dbeafe", textColor: "#2563eb" }
+        ];
+
+        // Calculate totals
+        function calculateTotals() {
+            let totalIncome = 0;
+            let totalExpenses = 0;
+            
+            transactions.forEach(transaction => {
+                if (transaction.type === 'income') {
+                    totalIncome += transaction.amount;
+                } else {
+                    totalExpenses += Math.abs(transaction.amount);
+                }
+            });
+            
+            const totalBalance = totalIncome - totalExpenses;
+            
+            // Update UI
+            document.getElementById('totalBalance').textContent = `Ksh ${totalBalance.toLocaleString()}`;
+            document.getElementById('incomeAmount').textContent = `Ksh ${totalIncome.toLocaleString()}`;
+            document.getElementById('expenseAmount').textContent = `Ksh ${totalExpenses.toLocaleString()}`;
+        }
+
+        // Render transactions
+        function renderTransactions() {
+            const transactionsList = document.getElementById('transactionsList');
+            transactionsList.innerHTML = '';
+            
+            transactions.forEach(transaction => {
+                const isIncome = transaction.type === 'income';
+                const amountClass = isIncome ? 'income-color' : 'expense-color';
+                const amountSign = isIncome ? '+' : '-';
+                const amountDisplay = isIncome ? transaction.amount : Math.abs(transaction.amount);
+                
+                const transactionHTML = `
+                    <div class="transaction-card" data-id="${transaction.id}">
+                        <div class="transaction-icon" style="background-color: ${transaction.iconColor}; color: ${transaction.textColor};">
+                            <ion-icon name="${transaction.icon}"></ion-icon>
+                        </div>
+                        <div class="transaction-content">
+                            <div class="transaction-title">${transaction.title}</div>
+                            <div class="transaction-category">${transaction.category}</div>
+                        </div>
+                        <div class="transaction-right">
+                            <div>
+                                <div class="transaction-amount ${amountClass}">${amountSign}Ksh ${amountDisplay.toLocaleString()}</div>
+                                <div class="transaction-date">${transaction.date}</div>
+                            </div>
+                            <div class="delete-section">
+                                <button class="delete-button" onclick="deleteTransaction(${transaction.id})">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                transactionsList.innerHTML += transactionHTML;
+            });
+            
+            calculateTotals();
+        }
+
+        // Show loading spinner
+        function showLoading() {
+            const loading = document.getElementById('loadingOverlay');
+            loading.classList.remove('loading-hidden');
+        }
+
+        // Hide loading spinner
+        function hideLoading() {
+            const loading = document.getElementById('loadingOverlay');
+            loading.classList.add('loading-hidden');
+        }
+
         // Function to show sign up screen
         function showSignUp() {
-            document.getElementById('signinScreen').classList.add('hidden');
-            document.getElementById('signupScreen').classList.remove('hidden');
+            showLoading();
+            setTimeout(() => {
+                document.getElementById('signinScreen').classList.add('hidden');
+                document.getElementById('signupScreen').classList.remove('hidden');
+                document.getElementById('dashboardScreen').classList.add('hidden');
+                hideLoading();
+            }, 500);
         }
 
         // Function to show sign in screen
         function showSignIn() {
-            document.getElementById('signupScreen').classList.add('hidden');
-            document.getElementById('signinScreen').classList.remove('hidden');
+            showLoading();
+            setTimeout(() => {
+                document.getElementById('signupScreen').classList.add('hidden');
+                document.getElementById('signinScreen').classList.remove('hidden');
+                document.getElementById('dashboardScreen').classList.add('hidden');
+                hideLoading();
+            }, 500);
+        }
+
+        // Function to show dashboard
+        function showDashboard() {
+            showLoading();
+            setTimeout(() => {
+                document.getElementById('signupScreen').classList.add('hidden');
+                document.getElementById('signinScreen').classList.add('hidden');
+                document.getElementById('dashboardScreen').classList.remove('hidden');
+                renderTransactions();
+                hideLoading();
+            }, 500);
+        }
+
+        // Handle sign up
+        function handleSignUp() {
+            showLoading();
+            setTimeout(() => {
+                const name = document.getElementById('signupName').value;
+                document.getElementById('userName').textContent = name.split(' ')[0];
+                showDashboard();
+                showMessage('Account created successfully!', 'success');
+            }, 1000);
+        }
+
+        // Handle sign in
+        function handleSignIn() {
+            showLoading();
+            setTimeout(() => {
+                const email = document.getElementById('signinEmail').value;
+                const name = email.split('@')[0];
+                document.getElementById('userName').textContent = name;
+                showDashboard();
+                showMessage('Signed in successfully!', 'success');
+            }, 1000);
+        }
+
+        // Handle logout
+        function handleLogout() {
+            showLoading();
+            setTimeout(() => {
+                showSignIn();
+                showMessage('Logged out successfully!', 'success');
+            }, 800);
+        }
+
+        // Delete transaction
+        function deleteTransaction(transactionId) {
+            const transactionCard = document.querySelector(`[data-id="${transactionId}"]`);
+            if (transactionCard) {
+                transactionCard.style.opacity = '0';
+                transactionCard.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    transactions = transactions.filter(t => t.id !== transactionId);
+                    renderTransactions();
+                    showMessage('Transaction deleted!', 'success');
+                }, 300);
+            }
+        }
+
+        // Show add transaction (placeholder for future functionality)
+        function showAddTransaction() {
+            showMessage('Add transaction feature coming soon!', 'default');
         }
 
         // Function to show a custom message
@@ -312,13 +731,9 @@
             const box = document.getElementById('message-box');
             const messageText = document.getElementById('message-text');
 
-            // Set message text
             messageText.textContent = text;
-            
-            // Reset box classes
             box.className = 'message-box';
             
-            // Add appropriate color class
             if (type === 'success') {
                 box.classList.add('message-success');
             } else if (type === 'error') {
@@ -327,14 +742,17 @@
                 box.classList.add('message-default');
             }
 
-            // Show message
             box.classList.add('show');
 
-            // Hide message after 3 seconds
             setTimeout(() => {
                 box.classList.remove('show');
             }, 3000);
         }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTransactions();
+        });
     </script>
 </body>
 </html>
