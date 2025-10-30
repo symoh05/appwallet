@@ -20,7 +20,9 @@
             font-family: 'Exo 2', sans-serif;
             background-color: #fff8e5;
             min-height: 100vh;
-            padding: 5px; /* Reduced from 10px */
+            padding: 5px;
+            position: relative;
+            padding-bottom: 40px; /* Space for version number */
         }
 
         /* Custom colors */
@@ -194,7 +196,7 @@
             margin: 0 auto;
             background-color: #fff8e5;
             border-radius: 24px;
-            padding: 15px; /* Reduced from 20px */
+            padding: 15px;
         }
 
         /* Dashboard Header */
@@ -202,21 +204,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px; /* Reduced from 24px */
-            padding-bottom: 12px; /* Reduced from 16px */
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #e5e7eb;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 10px; /* Reduced from 12px */
+            gap: 10px;
             flex: 1;
         }
 
         .logo {
-            width: 80; /* Reduced from 40px */
-            height: 80px; /* Reduced from 40px */
+            width: 70px;
+            height: 70px;
             border-radius: 8px;
         }
 
@@ -226,12 +228,12 @@
         }
 
         .welcome-label {
-            font-size: 11px; /* Reduced from 12px */
+            font-size: 11px;
             color: #6b7280;
         }
 
         .username {
-            font-size: 15px; /* Reduced from 16px */
+            font-size: 15px;
             font-weight: 600;
             color: #333333;
         }
@@ -239,16 +241,16 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 10px; /* Reduced from 12px */
+            gap: 10px;
         }
 
         .add-button {
             background-color: #6F4F3D;
             color: white;
-            padding: 6px 12px; /* Reduced from 8px 16px */
+            padding: 6px 12px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 13px; /* Reduced from 14px */
+            font-size: 13px;
             border: none;
             cursor: pointer;
             display: flex;
@@ -261,7 +263,7 @@
             border: none;
             color: #6b7280;
             cursor: pointer;
-            padding: 6px; /* Reduced from 8px */
+            padding: 6px;
             border-radius: 8px;
         }
 
@@ -273,22 +275,22 @@
         .balance-card {
             background-color: white;
             border-radius: 16px;
-            padding: 15px; /* Reduced from 20px */
-            margin-bottom: 15px; /* Reduced from 20px */
+            padding: 15px;
+            margin-bottom: 15px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .balance-title {
-            font-size: 13px; /* Reduced from 14px */
+            font-size: 13px;
             color: #6b7280;
-            margin-bottom: 6px; /* Reduced from 8px */
+            margin-bottom: 6px;
         }
 
         .balance-amount {
-            font-size: 28px; /* Reduced from 32px */
+            font-size: 28px;
             font-weight: 700;
             color: #333333;
-            margin-bottom: 15px; /* Reduced from 20px */
+            margin-bottom: 15px;
         }
 
         .balance-stats {
@@ -302,13 +304,13 @@
         }
 
         .stat-label {
-            font-size: 11px; /* Reduced from 12px */
+            font-size: 11px;
             color: #6b7280;
-            margin-bottom: 3px; /* Reduced from 4px */
+            margin-bottom: 3px;
         }
 
         .stat-amount {
-            font-size: 16px; /* Reduced from 18px */
+            font-size: 16px;
             font-weight: 600;
         }
 
@@ -316,38 +318,38 @@
             border-right: 1px solid #e5e7eb;
         }
 
-        /* Transactions Section - Reduced margins */
+        /* Transactions Section */
         .section-title {
-            font-size: 17px; /* Reduced from 18px */
+            font-size: 17px;
             font-weight: 600;
             color: #333333;
-            margin-bottom: 12px; /* Reduced from 16px */
+            margin-bottom: 12px;
         }
 
         .transactions-list {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Reduced from 12px */
+            gap: 8px;
         }
 
         .transaction-card {
             background-color: white;
             border-radius: 12px;
-            padding: 12px; /* Reduced from 16px */
+            padding: 12px;
             display: flex;
             align-items: center;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .transaction-icon {
-            width: 35px; /* Reduced from 40px */
-            height: 35px; /* Reduced from 40px */
-            border-radius: 18px; /* Reduced from 20px */
+            width: 35px;
+            height: 35px;
+            border-radius: 18px;
             background-color: #fee2e2;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px; /* Reduced from 12px */
+            margin-right: 10px;
             color: #dc3545;
         }
 
@@ -356,14 +358,14 @@
         }
 
         .transaction-title {
-            font-size: 15px; /* Reduced from 16px */
+            font-size: 15px;
             font-weight: 600;
             color: #333333;
-            margin-bottom: 3px; /* Reduced from 4px */
+            margin-bottom: 3px;
         }
 
         .transaction-category {
-            font-size: 13px; /* Reduced from 14px */
+            font-size: 13px;
             color: #6b7280;
         }
 
@@ -371,23 +373,23 @@
             text-align: right;
             display: flex;
             align-items: center;
-            gap: 8px; /* Reduced from 12px */
+            gap: 8px;
         }
 
         .transaction-amount {
-            font-size: 15px; /* Reduced from 16px */
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 3px; /* Reduced from 4px */
+            margin-bottom: 3px;
         }
 
         .transaction-date {
-            font-size: 11px; /* Reduced from 12px */
+            font-size: 11px;
             color: #6b7280;
         }
 
         .delete-section {
             border-left: 1px solid #e5e7eb;
-            padding-left: 8px; /* Reduced from 12px */
+            padding-left: 8px;
         }
 
         .delete-button {
@@ -395,12 +397,227 @@
             border: none;
             color: #dc3545;
             cursor: pointer;
-            padding: 3px; /* Reduced from 4px */
+            padding: 3px;
             border-radius: 4px;
         }
 
         .delete-button:hover {
             background-color: #fee2e2;
+        }
+
+        /* Add Transaction Page Styles */
+        .add-transaction-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff8e5;
+            border-radius: 24px;
+            padding: 15px;
+        }
+
+        .add-transaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            color: #6F4F3D;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .add-transaction-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .save-button {
+            background: none;
+            border: none;
+            color: #6F4F3D;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Type Selector */
+        .type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .type-button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .type-button.active {
+            background-color: #6F4F3D;
+            color: white;
+            border-color: #6F4F3D;
+        }
+
+        .type-button:not(.active) {
+            background-color: transparent;
+            color: #6b7280;
+        }
+
+        /* Amount Section */
+        .amount-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .amount-display {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .amount-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background-color: white;
+        }
+
+        /* Title Input */
+        .title-input-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background-color: white;
+        }
+
+        .title-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        /* Categories */
+        .categories-section {
+            margin-bottom: 20px;
+        }
+
+        .categories-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .category-button {
+            padding: 12px 8px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .category-button.active {
+            background-color: #6F4F3D;
+            color: white;
+            border-color: #6F4F3D;
+        }
+
+        .category-icon {
+            font-size: 20px;
+        }
+
+        .category-name {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Products Section */
+        .products-section {
+            margin-top: 20px;
+        }
+
+        .products-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .product-button {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .product-button:hover {
+            border-color: #6F4F3D;
+        }
+
+        /* Version Number */
+        .version-number {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #6b7280;
+            font-size: 12px;
+            z-index: 1;
         }
 
         /* Loading Spinner */
@@ -444,6 +661,9 @@
     <div id="loadingOverlay" class="loading-overlay loading-hidden">
         <div class="loading-spinner"></div>
     </div>
+
+    <!-- VERSION NUMBER -->
+    <div class="version-number">Wallet App v1.0.0</div>
 
     <!-- SIGN UP SCREEN -->
     <div class="auth-card" id="signupScreen">
@@ -522,7 +742,7 @@
                 </div>
             </div>
             <div class="header-right">
-                <button class="add-button" onclick="showAddTransaction()">
+                <button class="add-button" onclick="showAddTransactionPage()">
                     <ion-icon name="add"></ion-icon>
                     Add
                 </button>
@@ -556,6 +776,61 @@
         </div>
     </div>
 
+    <!-- ADD TRANSACTION SCREEN -->
+    <div class="add-transaction-container hidden" id="addTransactionScreen">
+        <!-- Add Transaction Header -->
+        <div class="add-transaction-header">
+            <button class="back-button" onclick="showDashboard()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+            <div class="add-transaction-title">New Transaction</div>
+            <button class="save-button" onclick="saveTransaction()">
+                Save
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </div>
+
+        <!-- Type Selector -->
+        <div class="type-selector">
+            <button class="type-button active" onclick="setTransactionType('expense')">
+                <ion-icon name="arrow-down-circle"></ion-icon>
+                Expense
+            </button>
+            <button class="type-button" onclick="setTransactionType('income')">
+                <ion-icon name="arrow-up-circle"></ion-icon>
+                Income
+            </button>
+        </div>
+
+        <!-- Amount Section -->
+        <div class="amount-section">
+            <div class="amount-display" id="amountDisplay">Ksh 0</div>
+            <input type="number" class="amount-input" placeholder="Enter amount" id="amountInput" oninput="updateAmountDisplay()">
+        </div>
+
+        <!-- Title Input -->
+        <div class="title-input-container">
+            <ion-icon name="create-outline"></ion-icon>
+            <input type="text" class="title-input" placeholder="Transaction Title" id="transactionTitle" readonly>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-section">
+            <div class="categories-title">Category</div>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section hidden" id="productsSection">
+            <div class="products-title">Products</div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Message Box -->
     <div id="message-box" class="message-box">
         <p id="message-text"></p>
@@ -569,6 +844,19 @@
             { id: 3, title: "Groceries", category: "Food & Drinks", amount: -4270, date: "3 days ago", type: "expense", icon: "fast-food", iconColor: "#fef3c7", textColor: "#d97706" },
             { id: 4, title: "Freelance", category: "Income", amount: 2000, date: "4 days ago", type: "income", icon: "laptop", iconColor: "#dbeafe", textColor: "#2563eb" }
         ];
+
+        // Categories and Products data
+        const categories = [
+            { id: 1, name: "Food & Drinks", icon: "fast-food", products: ["Restaurant", "Groceries", "Coffee", "Snacks"] },
+            { id: 2, name: "Shopping", icon: "cart", products: ["Clothing", "Electronics", "Home", "Gifts"] },
+            { id: 3, name: "Transportation", icon: "car-sport", products: ["Fuel", "Taxi", "Bus", "Maintenance"] },
+            { id: 4, name: "Entertainment", icon: "film", products: ["Movies", "Games", "Concerts", "Sports"] },
+            { id: 5, name: "Bills", icon: "receipt", products: ["Electricity", "Water", "Internet", "Rent"] },
+            { id: 6, name: "Income", icon: "cash", products: ["Salary", "Freelance", "Investment", "Bonus"] }
+        ];
+
+        let currentTransactionType = 'expense';
+        let selectedCategory = null;
 
         // Calculate totals
         function calculateTotals() {
@@ -630,6 +918,98 @@
             calculateTotals();
         }
 
+        // Render categories
+        function renderCategories() {
+            const categoriesGrid = document.getElementById('categoriesGrid');
+            categoriesGrid.innerHTML = '';
+            
+            categories.forEach(category => {
+                const categoryHTML = `
+                    <button class="category-button" onclick="selectCategory(${category.id})">
+                        <ion-icon name="${category.icon}" class="category-icon"></ion-icon>
+                        <span class="category-name">${category.name}</span>
+                    </button>
+                `;
+                categoriesGrid.innerHTML += categoryHTML;
+            });
+        }
+
+        // Render products
+        function renderProducts(categoryId) {
+            const productsSection = document.getElementById('productsSection');
+            const productsGrid = document.getElementById('productsGrid');
+            const category = categories.find(cat => cat.id === categoryId);
+            
+            if (category) {
+                productsGrid.innerHTML = '';
+                category.products.forEach(product => {
+                    const productHTML = `
+                        <button class="product-button" onclick="selectProduct('${product}')">
+                            ${product}
+                        </button>
+                    `;
+                    productsGrid.innerHTML += productHTML;
+                });
+                productsSection.classList.remove('hidden');
+            }
+        }
+
+        // Set transaction type
+        function setTransactionType(type) {
+            currentTransactionType = type;
+            const buttons = document.querySelectorAll('.type-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Update amount display
+        function updateAmountDisplay() {
+            const amount = document.getElementById('amountInput').value;
+            document.getElementById('amountDisplay').textContent = `Ksh ${amount ? parseInt(amount).toLocaleString() : '0'}`;
+        }
+
+        // Select category
+        function selectCategory(categoryId) {
+            selectedCategory = categoryId;
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(categoryId);
+        }
+
+        // Select product
+        function selectProduct(productName) {
+            document.getElementById('transactionTitle').value = productName;
+        }
+
+        // Save transaction
+        function saveTransaction() {
+            const amount = document.getElementById('amountInput').value;
+            const title = document.getElementById('transactionTitle').value;
+            
+            if (!amount || !title || !selectedCategory) {
+                showMessage('Please fill all fields and select a category!', 'error');
+                return;
+            }
+
+            const category = categories.find(cat => cat.id === selectedCategory);
+            const newTransaction = {
+                id: Date.now(),
+                title: title,
+                category: category.name,
+                amount: currentTransactionType === 'income' ? parseInt(amount) : -parseInt(amount),
+                date: "Just now",
+                type: currentTransactionType,
+                icon: category.icon,
+                iconColor: currentTransactionType === 'income' ? "#dcfce7" : "#fee2e2",
+                textColor: currentTransactionType === 'income' ? "#16a34a" : "#dc3545"
+            };
+
+            transactions.unshift(newTransaction);
+            showDashboard();
+            showMessage('Transaction added successfully!', 'success');
+        }
+
         // Show loading spinner
         function showLoading() {
             const loading = document.getElementById('loadingOverlay');
@@ -642,41 +1022,54 @@
             loading.classList.add('loading-hidden');
         }
 
-        // Function to show sign up screen
+        // Navigation functions
         function showSignUp() {
             showLoading();
             setTimeout(() => {
                 document.getElementById('signinScreen').classList.add('hidden');
                 document.getElementById('signupScreen').classList.remove('hidden');
                 document.getElementById('dashboardScreen').classList.add('hidden');
+                document.getElementById('addTransactionScreen').classList.add('hidden');
                 hideLoading();
             }, 500);
         }
 
-        // Function to show sign in screen
         function showSignIn() {
             showLoading();
             setTimeout(() => {
                 document.getElementById('signupScreen').classList.add('hidden');
                 document.getElementById('signinScreen').classList.remove('hidden');
                 document.getElementById('dashboardScreen').classList.add('hidden');
+                document.getElementById('addTransactionScreen').classList.add('hidden');
                 hideLoading();
             }, 500);
         }
 
-        // Function to show dashboard
         function showDashboard() {
             showLoading();
             setTimeout(() => {
                 document.getElementById('signupScreen').classList.add('hidden');
                 document.getElementById('signinScreen').classList.add('hidden');
                 document.getElementById('dashboardScreen').classList.remove('hidden');
+                document.getElementById('addTransactionScreen').classList.add('hidden');
                 renderTransactions();
                 hideLoading();
             }, 500);
         }
 
-        // Handle sign up
+        function showAddTransactionPage() {
+            showLoading();
+            setTimeout(() => {
+                document.getElementById('signupScreen').classList.add('hidden');
+                document.getElementById('signinScreen').classList.add('hidden');
+                document.getElementById('dashboardScreen').classList.add('hidden');
+                document.getElementById('addTransactionScreen').classList.remove('hidden');
+                renderCategories();
+                hideLoading();
+            }, 500);
+        }
+
+        // Handle authentication
         function handleSignUp() {
             showLoading();
             setTimeout(() => {
@@ -687,7 +1080,6 @@
             }, 1000);
         }
 
-        // Handle sign in
         function handleSignIn() {
             showLoading();
             setTimeout(() => {
@@ -699,7 +1091,6 @@
             }, 1000);
         }
 
-        // Handle logout
         function handleLogout() {
             showLoading();
             setTimeout(() => {
@@ -720,11 +1111,6 @@
                     showMessage('Transaction deleted!', 'success');
                 }, 300);
             }
-        }
-
-        // Show add transaction (placeholder for future functionality)
-        function showAddTransaction() {
-            showMessage('Add transaction feature coming soon!', 'default');
         }
 
         // Function to show a custom message
